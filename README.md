@@ -191,7 +191,7 @@ To start, we're giving you the data for 3 palettes in a `json` format. Copy the 
 }
 ```
 
-Thanks to ES6 modules, you can just use `import` to import this object of objects into your code.
+Thanks to ES6 modules and Vite, you can just use `import` to import this object of objects into your code.
 
 ```js
 import palettes from './palettes.json'
