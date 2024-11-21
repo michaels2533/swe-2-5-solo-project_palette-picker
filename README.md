@@ -1,16 +1,15 @@
 # 2.3.0 - Solo Project: Palette Picker
 
-- [2.3.0 - Solo Project: Palette Picker](#230---solo-project-palette-picker)
 - [Project Description](#project-description)
 - [User Stories](#user-stories)
 - [Vite and getting started](#vite-and-getting-started)
   - [esModules](#esmodules)
 - [Tech Tips](#tech-tips)
-  - [UUIDs](#uuids)
   - [Data attributes](#data-attributes)
   - [Color inputs](#color-inputs)
   - [Required fields](#required-fields)
   - [palettes.json](#palettesjson)
+    - [UUIDs](#uuids)
   - [Saving to localStorage](#saving-to-localstorage)
   - [Copying to the clipboard](#copying-to-the-clipboard)
 - [Tech Rubric](#tech-rubric)
@@ -19,26 +18,35 @@
   - [Functionality](#functionality)
   - [Meta](#meta)
 
-# Project Description
+## Project Description
 We're going to be building a palette picker program today. A "color palette" is a set of colors that go well together. We're going to be building a program that allows users to create their own palettes, and save them for later. We'll also be able to delete palettes, and copy the colors to the clipboard.
 
-In real life, design palettes can be *huge* with dozens of colors to handle all sorts of things. Today, we're keeping it simple and only using 3 colors per palette.
+In real life, design palettes can include dozens of colors to handle all aspects of a website: headings, text, background colors, buttons, links, and so on. Today, we're keeping it simple and only using 3 colors per palette.
+
+When you're done, you should have an app with a form for creating palettes and the palettes displayed beneath it, like this:
 
 ![palette picker default view](./images/site-default.png)
 
-And here it is with more colors. You should use `flexbox` or `grid` to handle the layout of the palettes.
+And here it is with more palettes created. You should use `flexbox` or `grid` to handle the layout of the palettes.
+
 ![palette picker multiple rows](./images/multiple-rows.png)
 
-# User Stories
-As always, let's start our journey with the user, what can they actually do with our site? There are technical requirements below, but these are the user stories that we're trying to solve. Two different ways of looking at a project, both useful!
+## User Stories
+As always, let's start our journey with the user, what can they actually do with our site? 
+
+A **user story** is a description of what a user would do (ideally) with our website once we're done. We write user stories to help us organize and priorities the features that we want to implement.
+
+There are also technical requirements below (e.g. you must have a `form`, you must use `grid` or `flexbox`, and so on), but thinking about the finished product in terms of our user experience is just as useful, if not more important!
+
+We will write user stores in the format: "a user [what the user can do]"
 
 A user:
-- Can create a palette by using a form
-- Will give their palette a title, three colors, and a temperature
+- Can create a palette by filling out a form
+- Can provide their palette with a title, choose three colors, and a palette "temperature"
 - Can't submit a form without giving it a title
 - Can visually choose their colors using a color picker
-- Is greeted by 3 default palettes the first time they visit the site (or if they delete all their palettes)
 - Can see all the palettes they create in the `palettes` section of the page
+- Is provided with 3 default palettes the first time they visit the site (or if they delete all their palettes)
 - Can see their colors with a black and white text example overlaid on each color
 - Can see their colors with a black and white border around each one
 - Can see the temperature of each palette in a banner along the bottom of each one
@@ -48,12 +56,14 @@ A user:
 - Has their palettes saved so even if they close the site, upon returning they can see their palettes
 
 Here are some close ups and examples of what we're looking for:
+
 ![palettes](images/palettes.png)
 
 Here's the color picker:
+
 ![palettes](images/color-type-input.png)
 
-# Vite and getting started
+## Vite and getting started
 Remember, we're using Vite for this project! To get started do:
 
 ```bash
@@ -75,7 +85,8 @@ Now that's going to create some boilerplate code you don't need:
 
 We'll change some thing later in order to deploy to GitHub pages, but that's all you need to start!
 
-## esModules
+### esModules
+
 Remember, Vite doesn't use commonjs modules like node.
 
 Here's a [crash course on esmodules](https://www.youtube.com/watch?v=cRHQNNcYf6s) if you need it.
@@ -130,73 +141,84 @@ Also, what's super cool with Vite is that you can load in some style files in yo
 import './styles.css';
 ```
 
-# Tech Tips
+## Tech Tips
 This is a big project, so here are some helpful things for you to consider. Also, keep in mind you can look at the rubric at the end as a sort of guide to what you need to do.
 
-## UUIDs
-Up until now, to get ahold of an item in an array, we've relied exclusively on it's index, but that won't always work. Say you have some items in your data store, then you filter to only show a few. How would you know which is which? The filtered index won't match the *true* index anymore.
+### Data attributes
+Some things in this project get *way* easier if you know what a `data-` attribute is and why you'd likely want them on buttons. If you are unfamiliar with data attributes in html and `dataset` in JS, make sure you read up on them (your DOM assignments used them!).
 
-That's were the concept of "ids" comes along. We've seen them in HTML as a way of uniquely identifying an element. A common way to assign data ids on the frontend is by using the [uuid package](https://www.npmjs.com/package/uuid):
+### Color inputs
+You know how there's a ton of input types? Check out `input type="color"` for this project! Read up on how the value of a color input is returned.
+
+### Required fields
+Do you know how to make an HTML form treat an input as `required`? It's not hard, try figuring it out, and make sure the text input is required!
+
+### palettes.json
+To start, we're giving you the data for 3 palettes in a `json` format. Copy the data below into a `palettes.json` file in your own repo.
+
+```json
+{
+  "5affd4e4-418d-4b62-beeb-1c0f7aaff753": {
+    "uuid": "5affd4e4-418d-4b62-beeb-1c0f7aaff753",
+    "title": "Marcy",
+    "colors": [
+      "#c92929",
+      "#2f5a8b",
+      "#327a5f"
+    ],
+    "temperature": "neutral"
+  },
+  "32521ef4-d64c-4906-b06d-f3d0d6b16e0f": {
+    "uuid": "32521ef4-d64c-4906-b06d-f3d0d6b16e0f",
+    "title": "Sleek and Modern",
+    "colors": [
+      "#3A5199",
+      "#2F2E33",
+      "#D5D6D2"
+    ],
+    "temperature": "cool"
+  },
+  "8b144d62-faa7-4226-87e1-096d7c1bedc7": {
+    "uuid": "8b144d62-faa7-4226-87e1-096d7c1bedc7",
+    "title": "Winter Reds",
+    "colors": [
+      "#A10115",
+      "#C0B2B5",
+      "#600A0A"
+    ],
+    "temperature": "warm"
+  }
+}
+```
+
+Thanks to ES6 modules, you can just use `import` to import this object of objects into your code.
+
+```js
+import palettes from './palettes.json'
+console.log(palettes); // It's now regular JS code!
+```
+
+Pretty cool right? The only catch is you *must* specify the file type `.json`. Use the data in this file to generate your default palettes.
+
+#### UUIDs
+
+This data is organized as an object of objects. This is a common strategy! Each object represents the data for an individual palette. The key to access each object is the object's **universally unique id (uuid)**. That `uuid` is also stored inside of each object. 
+
+Though its a bit overkill for this project, it is a good practice to use UUIDs to organize data. To generate your own UUID values, we'll use the `uuid` npm package:
 
 ```bash
 npm i uuid
 ```
-Then, whenever you need a "universally unique identifier" you can do:
+
+Then, we'll import the `v4()` function from `uuid`, renaming it to `generateUUID`. Whenever you need a new UUID you can just invoke that function:
 
 ```js
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as generateUUID } from 'uuid';
 
-console.log(uuidv4());
+const newPaletteID = generateUUID();
 ```
 
-Now, technically in this project we don't do any filtering so we don't *need* uuids, but it's a good habit to get into. And we encourage you to use them in this project anyway. The default palettes come with them to keep the options open.
-
-## Data attributes
-Some things in this project get *way* easier if you know what a data attribute is and why you'd likely want them on buttons. If you are unfamiliar with data attributes in html and `dataset` in JS, make sure you read up on them (your DOM assignment used them!).
-
-## Color inputs
-You know how there's a ton of input types? Check out `color` for this project!
-
-## Required fields
-Do you know how to make an HTML form treat an input as `required`? It's not hard, try figuring it out, and make sure the text input is required!
-
-## palettes.json
-We're giving you 3 palettes to start! In the real world, you'd probably query a server or something, but we're just going to give them to you as a `json` file (copy it out of this repo and into your project).
-
-```json
-[
-  {
-    "uuid": "5affd4e4-418d-4b62-beeb-1c0f7aaff753",
-    "title": "Marcy",
-    "colors": [ "#c92929", "#2f5a8b", "#327a5f" ],
-    "temperature": "neutral"
-  },
-  {
-    "uuid": "32521ef4-d64c-4906-b06d-f3d0d6b16e0f",
-    "title": "Sleek and Modern",
-    "colors": [ "#3A5199", "#2F2E33", "#D5D6D2" ],
-    "temperature": "cool"
-  },
-  {
-    "uuid": "8b144d62-faa7-4226-87e1-096d7c1bedc7",
-    "title": "Winter Reds",
-    "colors": [ "#A10115", "#C0B2B5","#600A0A" ],
-    "temperature": "warm"
-  }
-]
-```
-
-And what's super cool about JSON is that you can read the file type from the browser. How? We don't have the Node `fs` module, no we can just import it directly, like this:
-
-```js
-// data-store.js
-
-import palettes from './palettes.json'
-console.log(palettes); // It's now regular JS code!
-```
-Pretty cool right? The only catch is you *must* specify the file type `.json`. Use these as your default palettes, and what appears if a user deletes all existing palettes.
-
-## Saving to localStorage
+### Saving to localStorage
 > We do not want to use `sessionStorage` that's different!
 
 We want our palettes to persist across sessions. We don't need databases to do this, assuming we're ok with only saving the data to the user's browser. Here's an [article explaining localStorage](https://www.freecodecamp.org/news/how-to-store-data-in-web-browser-storage-localstorage-and-session-storage-explained/)
@@ -221,15 +243,15 @@ With those two out of the way, you can make some more focused helper functions l
 
 Remember these functions are all *only* the data layer of our project. None of them should be touching the DOM, that's the job of other rendering functions. For example, `removePalette()` should only remove the palette from the localStorage array, do not try to remove it from the DOM in this function.
 
-## Copying to the clipboard
+### Copying to the clipboard
 This used to be a pain, but now it's not! Check out this [article explaining how to copy with the clipboard API](https://chiamakaikeanyi.dev/how-to-copy-text-with-ease-in-javascript-using-the-clipboard-api/). This is a crucial feature, don't forget it!
 
 And don't forget that users need some confirmation of a copy, so alter the buttons text for a second to say "Copied hex!" for 1 second before switching back. Remember `setTimeout`?
 
-# Tech Rubric
+## Tech Rubric
 In order to see how well you're doing with this project, here are all the things we need would like to see from you. If you get all of these, then you know that you're where you need to be!
 
-## Layout: Structure
+### Layout: Structure
 - [ ] There is a single `main` element on the page
 - [ ] There is a single `h1` element on the page
 - [ ] There is a `form`
@@ -253,12 +275,12 @@ In order to see how well you're doing with this project, here are all the things
   - (gray = neutral, red = warm, blue = cool)
 - [ ] Palettes appear next to each other in a grid-like pattern (flex or grid presentations fine)
 
-## layout: Accessibility
+### layout: Accessibility
 - [ ] The form has an `aria-label` or `aria-labelledby` attribute that describes the form
 - [ ] The section has an `aria-label` or `aria-labelledby` attribute that describes the section
 - [ ] There are no instances of recreating any semantic elements
 
-## Functionality
+### Functionality
 - [ ] The title is a `required` field, and the form cannot be submitted without it
 - [ ] Clicking the form submit button does not reload the page because the default behavior is prevented
 - [ ] Clicking the form submit button creates a new palette in the palettes section
@@ -272,7 +294,7 @@ In order to see how well you're doing with this project, here are all the things
 - [ ] If a user deletes all their palettes, on next reload, the default palettes appear again
 - [ ] A user's palettes are saved to localStorage
 
-## Meta
+### Meta
 - [ ] The project is created using Vite
 - [ ] The code exists in more than one JS file
 - [ ] The project is deployed via GitHub Pages properly
