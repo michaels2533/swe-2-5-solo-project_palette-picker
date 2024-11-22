@@ -5,13 +5,16 @@
 - [Vite and getting started](#vite-and-getting-started)
   - [esModules](#esmodules)
 - [Tech Tips](#tech-tips)
-  - [Data attributes](#data-attributes)
-  - [Color inputs](#color-inputs)
-  - [Required fields](#required-fields)
-  - [palettes.json](#palettesjson)
+  - [HTML](#html)
+    - [Data attributes](#data-attributes)
+    - [Color inputs](#color-inputs)
+    - [Required fields](#required-fields)
+  - [JavaScript](#javascript)
+    - [Organization](#organization)
+    - [palettes.json](#palettesjson)
     - [UUIDs](#uuids)
-  - [Saving to localStorage](#saving-to-localstorage)
-  - [Copying to the clipboard](#copying-to-the-clipboard)
+    - [Saving to localStorage](#saving-to-localstorage)
+    - [Copying to the clipboard](#copying-to-the-clipboard)
 - [Tech Rubric](#tech-rubric)
   - [Layout: Structure](#layout-structure)
   - [layout: Accessibility](#layout-accessibility)
@@ -144,16 +147,27 @@ import './styles.css';
 ## Tech Tips
 This is a big project, so here are some helpful things for you to consider. Also, keep in mind you can look at the rubric at the end as a sort of guide to what you need to do.
 
-### Data attributes
+### HTML
+
+#### Data attributes
 Some things in this project get *way* easier if you know what a `data-` attribute is and why you'd likely want them on buttons. If you are unfamiliar with data attributes in html and `dataset` in JS, make sure you read up on them (your DOM assignments used them!).
 
-### Color inputs
+#### Color inputs
 You know how there's a ton of input types? Check out `input type="color"` for this project! Read up on how the value of a color input is returned.
 
-### Required fields
+#### Required fields
 Do you know how to make an HTML form treat an input as `required`? It's not hard, try figuring it out, and make sure the text input is required!
 
-### palettes.json
+### JavaScript
+
+#### Organization
+
+We recommend that break up your application into separate files that each handle a single responsibility. This is called **separation of concerns**. The recommended files are:
+* `local-storage.js` - contains helpers for managing local storage
+* `dom-helpers.js` - contains helpers for manipulating the DOM
+* `index.js` - contains the main logic that sets up event handlers and executes initialization functions.
+
+#### palettes.json
 To start, we're giving you the data for 3 palettes in a `json` format. Copy the data below into a `palettes.json` file in your own repo.
 
 ```json
@@ -218,32 +232,44 @@ import { v4 as generateUUID } from 'uuid';
 const newPaletteID = generateUUID();
 ```
 
-### Saving to localStorage
+#### Saving to localStorage
 > We do not want to use `sessionStorage` that's different!
 
 We want our palettes to persist across sessions. We don't need databases to do this, assuming we're ok with only saving the data to the user's browser. Here's an [article explaining localStorage](https://www.freecodecamp.org/news/how-to-store-data-in-web-browser-storage-localstorage-and-session-storage-explained/)
 
 Once you understand the basics of `localStorage`, you can make some helper functions like:
-- `setLocalStorageKey(key, value)`
-  - This is a wrapper that automatically stringifies the value and sets it to the key
-- `getLocalStorageKey(key)`
-  - This is a wrapper that automatically parses the value and returns it, but also handles the errors (`JSON.parse` should always be wrapped in a `try/catch` since it breaks so easily). If there's an error it `console.errors` it and returns `null`
+- `setLocalStorageKey(key, value)` - This is a wrapper that automatically stringifies the value and sets it to the key
 
-With those two out of the way, you can make some more focused helper functions like:
-- getPalettes()
-  - Always return an array, either full of palettes or empty, this will make your downstream iterator functions a *lot* cleaner
-- setPalettes(newPalettes)
-  - Replace whatever palettes are saved in `localStorage` with
-- initPalettesIfEmpty()
-  - This one is important! If you don't have any palettes on page load, then you should add the default palettes to localStorage. *To be clear, that's on page load, not the second they have 0 palettes*. So if the user deletes each palette and then refreshes the page, suddenly the defaults will appear.
-- addPalette(newPalette)
+  ```js
+  const setLocalStorageKey = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+  ```
+
+- `getLocalStorageKey(key)` - This is a wrapper that automatically parses the value and returns it, but also handles the errors (`JSON.parse` should always be wrapped in a `try/catch` since it breaks so easily). If there's an error it `console.errors` it and returns `null`
+
+  ```js
+  const getLocalStorageKey = (key) => {
+    const storedValue = localStorage.getItem(key);
+    return JSON.parse(storedValue);
+  }
+  ```
+
+With those two out of the way, it is recommended that you make some more focused helper functions like:
+- `getPalettes()`
+  - Always return an array, either full of palettes or empty. If it always returns an array, it will make the code that uses this function simpler.
+- `setPalettes(newPalettes)`
+  - Replace whatever palettes are saved in `localStorage` with the provided array of `newPalettes`
+- `initPalettesIfEmpty()`
+  - This one is important! If you don't have any palettes on page load, then you should add the default palettes to localStorage. *To be clear, that's on page load, not immediately following the event that they delete all of the palettes*. So if the user deletes each palette, only if they refresh the page, the defaults will appear
+- `addPalette(newPalette)`
   - Add the palette to your saved localStorage palettes.
-- removePalette(paletteUuid)
+- `removePalette(paletteUuid)`
   - Remove the palette from your saved localStorage palettes as found by the palette's `uuid`
 
 Remember these functions are all *only* the data layer of our project. None of them should be touching the DOM, that's the job of other rendering functions. For example, `removePalette()` should only remove the palette from the localStorage array, do not try to remove it from the DOM in this function.
 
-### Copying to the clipboard
+#### Copying to the clipboard
 This used to be a pain, but now it's not! Check out this [article explaining how to copy with the clipboard API](https://chiamakaikeanyi.dev/how-to-copy-text-with-ease-in-javascript-using-the-clipboard-api/). This is a crucial feature, don't forget it!
 
 And don't forget that users need some confirmation of a copy, so alter the buttons text for a second to say "Copied hex!" for 1 second before switching back. Remember `setTimeout`?
