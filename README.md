@@ -256,18 +256,18 @@ Once you understand the basics of `localStorage`, you can make some helper funct
   ```
 
 With those two out of the way, it is recommended that you make some more focused helper functions like:
-- `getPalettes()`
-  - Always return an array, either full of palettes or empty. If it always returns an array, it will make the code that uses this function simpler.
 - `setPalettes(newPalettes)`
-  - Replace whatever palettes are saved in `localStorage` with the provided array of `newPalettes`
+  - Replace whatever palettes are saved in `localStorage` with the provided object of `newPalettes`
+- `getPalettes()`
+  - Get the palettes object stored in `localStorage` Always return an object, either full of palettes or empty. If it always returns an object, it will make the code that uses this function simpler.
 - `initPalettesIfEmpty()`
   - This one is important! If you don't have any palettes on page load, then you should add the default palettes to localStorage. *To be clear, that's on page load, not immediately following the event that they delete all of the palettes*. So if the user deletes each palette, only if they refresh the page, the defaults will appear
 - `addPalette(newPalette)`
-  - Add the palette to your saved localStorage palettes.
+  - Add the palette to your saved localStorage palettes. First retrieve the existing palettes, add the new palette to the object, and then set the palettes again.
 - `removePalette(paletteUuid)`
-  - Remove the palette from your saved localStorage palettes as found by the palette's `uuid`
+  - Remove the palette from your saved localStorage palettes as found by the palette's `uuid`. First retrieve the existing palettes, find and remove the specified palette from the object, and then set the palettes again.
 
-Remember these functions are all *only* the data layer of our project. None of them should be touching the DOM, that's the job of other rendering functions. For example, `removePalette()` should only remove the palette from the localStorage array, do not try to remove it from the DOM in this function.
+Remember these functions are all *only* the data layer of our project. None of them should be touching the DOM, that's the job of other rendering functions. For example, `removePalette()` should only remove the palette from the localStorage object, do not try to remove it from the DOM in this function.
 
 #### Copying to the clipboard
 This used to be a pain, but now it's not! Check out this [article explaining how to copy with the clipboard API](https://chiamakaikeanyi.dev/how-to-copy-text-with-ease-in-javascript-using-the-clipboard-api/). This is a crucial feature, don't forget it!
@@ -288,8 +288,8 @@ In order to see how well you're doing with this project, here are all the things
 - [ ] The form has 3 `radio` inputs and `labels` for the temperature setting
 - [ ] The form has `neutral` as the default temperature setting
 - [ ] The form has a `button` to submit the form
-- [ ] There is an `h2` showing the palettes section
 - [ ] There is a `section` for the palettes
+- [ ] There is an `h2` showing the palettes section
 - [ ] The page has a `ul` and `li` items that show each palette
 - [ ] Each palette has the 3 colors clearly visible somehow
 - [ ] Each palette has white and black text overlaid on each of the colors
@@ -299,7 +299,7 @@ In order to see how well you're doing with this project, here are all the things
 - [ ] Each palette has a banner along the bottom with the name of the temperature
 - [ ] Each palette has a banner along the bottom that is colored by the temperature
   - (gray = neutral, red = warm, blue = cool)
-- [ ] Palettes appear next to each other in a grid-like pattern (flex or grid presentations fine)
+- [ ] Palettes appear next to each other in an organized, responsive, well-spaced layout (flex or grid presentations fine)
 
 ### layout: Accessibility
 - [ ] The form has an `aria-label` or `aria-labelledby` attribute that describes the form
