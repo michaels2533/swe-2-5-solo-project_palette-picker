@@ -72,10 +72,10 @@ Remember, we're using Vite for this project! To get started do:
 ```bash
 npm create vite
 # This will pop up a CLI walkthrough, pick
-# Project name: palette-picker
+# Project name: app
 # Select "Vanilla" for the framework
 # Select JavaScript for the variant
-cd palette-picker
+cd app
 git init
 npm install
 ```
@@ -163,12 +163,12 @@ Do you know how to make an HTML form treat an input as `required`? It's not hard
 #### Organization
 
 We recommend that break up your application into separate files that each handle a single responsibility. This is called **separation of concerns**. The recommended files are:
-* `local-storage.js` - contains helpers for managing local storage
+* `local-storage.js` - contains helpers for managing local storage (feel free to copy the starter code we've provided in this repo)
 * `dom-helpers.js` - contains helpers for manipulating the DOM
-* `index.js` - contains the main logic that sets up event handlers and executes initialization functions.
+* `main.js` - contains the main logic that sets up event handlers and executes initialization functions.
 
 #### palettes.json
-To start, we're giving you the data for 3 palettes in a `json` format. Copy the data below into a `palettes.json` file in your own repo.
+To start, we're giving you the data for 3 palettes in a `json` format. In your own repo, create a `palettes.json` file and copy the data below into it.
 
 ```json
 {
@@ -218,7 +218,7 @@ Pretty cool right? The only catch is you *must* specify the file type `.json`. U
 
 This data is organized as an object of objects. This is a common strategy! Each object represents the data for an individual palette. The key to access each object is the object's **universally unique id (uuid)**. That `uuid` is also stored inside of each object. 
 
-Though its a bit overkill for this project, it is a good practice to use UUIDs to organize data. To generate your own UUID values, we'll use the `uuid` npm package:
+Though it's a bit overkill for this project, it is a good practice to use UUIDs to organize data. In particular, it makes finding and deleting individual entries much more efficient. To generate your own UUID values, we'll use the `uuid` npm package:
 
 ```bash
 npm i uuid
