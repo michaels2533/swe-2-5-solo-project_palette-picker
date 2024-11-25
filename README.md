@@ -1,9 +1,8 @@
 # 2.3.0 - Solo Project: Palette Picker
 
+- [Getting Started](#getting-started)
 - [Project Description](#project-description)
 - [User Stories](#user-stories)
-- [Vite and getting started](#vite-and-getting-started)
-  - [esModules](#esmodules)
 - [Tech Tips](#tech-tips)
   - [HTML](#html)
     - [Data attributes](#data-attributes)
@@ -11,6 +10,7 @@
     - [Required fields](#required-fields)
   - [JavaScript](#javascript)
     - [Organization](#organization)
+    - [esModules](#esmodules)
     - [palettes.json](#palettesjson)
     - [UUIDs](#uuids)
     - [Saving to localStorage](#saving-to-localstorage)
@@ -20,6 +20,30 @@
   - [layout: Accessibility](#layout-accessibility)
   - [Functionality](#functionality)
   - [Meta](#meta)
+
+## Getting Started
+
+To work on this project, **do not clone this repo and do not fork this project.**
+
+Instead, create a new repository called **palette-picker** that lives on your own account. When creating the repository, make sure it has the following settings:
+* The name is **palette-picker** (one "L", two "T"s)
+* It is public
+* It has a README.md
+
+Once you have your repo created, clone it down into your `unit-2` directory, and `cd` into it. 
+
+Then, create a Vite project inside called `app` with the following commands:
+
+```sh
+npm create vite
+# > Project Name: app
+# > Select a framework: Vanilla
+# > Select a variant: JavaScript
+cd app
+npm i
+```
+
+Finally, [follow these steps to set up the file structure for your project](https://marcylabschool.gitbook.io/marcy-lab-school-docs/fullstack-curriculum/how-tos/vite#make-the-project-your-own).
 
 ## Project Description
 We're going to be building a palette picker program today. A "color palette" is a set of colors that go well together. We're going to be building a program that allows users to create their own palettes, and save them for later. We'll also be able to delete palettes, and copy the colors to the clipboard.
@@ -66,27 +90,30 @@ Here's the color picker:
 
 ![palettes](images/color-type-input.png)
 
-## Vite and getting started
-Remember, we're using Vite for this project! To get started do:
+## Tech Tips
+This is a big project, so here are some helpful things for you to consider. Also, keep in mind you can look at the rubric at the end as a sort of guide to what you need to do.
 
-```bash
-npm create vite
-# This will pop up a CLI walkthrough, pick
-# Project name: app
-# Select "Vanilla" for the framework
-# Select JavaScript for the variant
-cd app
-git init
-npm install
-```
+### HTML
 
-Now that's going to create some boilerplate code you don't need:
-- delete `counter.js`
-- delete `javascipt.svg`
-- Keep but empty out `style.css` and `main.js`
-- Rename the `title` tag in `index.html` but don't touch anything else
+#### Data attributes
+Some things in this project get *way* easier if you know what a `data-` attribute is and why you'd likely want them on buttons. If you are unfamiliar with data attributes in html and `dataset` in JS, make sure you read up on them (your DOM assignments used them!).
 
-We'll change some thing later in order to deploy to GitHub pages, but that's all you need to start!
+#### Color inputs
+You know how there's a ton of input types? Check out `input type="color"` for this project! Read up on how the value of a color input is returned.
+
+#### Required fields
+Do you know how to make an HTML form treat an input as `required`? It's not hard, try figuring it out, and make sure the text input is required!
+
+### JavaScript
+
+#### Organization
+
+We recommend that you store all `.js` and `.css` files in an `app/src/` directory, leaving only the `index.html` file and configuration files in the root of your `app/` directory. 
+
+Within `src/`, we recommend that break up your application into separate files that each handle a single responsibility. The recommended files are:
+* `local-storage.js` - contains helpers for managing local storage (feel free to copy the starter code we've provided in this repo)
+* `dom-helpers.js` - contains helpers for manipulating the DOM
+* `main.js` - contains the main logic that sets up event handlers and executes initialization functions.
 
 ### esModules
 
@@ -143,29 +170,6 @@ Also, what's super cool with Vite is that you can load in some style files in yo
 ```js
 import './styles.css';
 ```
-
-## Tech Tips
-This is a big project, so here are some helpful things for you to consider. Also, keep in mind you can look at the rubric at the end as a sort of guide to what you need to do.
-
-### HTML
-
-#### Data attributes
-Some things in this project get *way* easier if you know what a `data-` attribute is and why you'd likely want them on buttons. If you are unfamiliar with data attributes in html and `dataset` in JS, make sure you read up on them (your DOM assignments used them!).
-
-#### Color inputs
-You know how there's a ton of input types? Check out `input type="color"` for this project! Read up on how the value of a color input is returned.
-
-#### Required fields
-Do you know how to make an HTML form treat an input as `required`? It's not hard, try figuring it out, and make sure the text input is required!
-
-### JavaScript
-
-#### Organization
-
-We recommend that break up your application into separate files that each handle a single responsibility. This is called **separation of concerns**. The recommended files are:
-* `local-storage.js` - contains helpers for managing local storage (feel free to copy the starter code we've provided in this repo)
-* `dom-helpers.js` - contains helpers for manipulating the DOM
-* `main.js` - contains the main logic that sets up event handlers and executes initialization functions.
 
 #### palettes.json
 To start, we're giving you the data for 3 palettes in a `json` format. In your own repo, create a `palettes.json` file and copy the data below into it.
