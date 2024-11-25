@@ -23,7 +23,7 @@
 
 ## Getting Started
 
-To work on this project, **do not clone this repo and do not fork this project.**
+To work on this project, **do not clone this repo and do not fork this project.** This repo will just serve as your instructions.
 
 Instead, create a new repository called **palette-picker** that lives on your own account. When creating the repository, make sure it has the following settings:
 * The name is **palette-picker** (one "L", two "T"s)
