@@ -43,7 +43,35 @@ cd app
 npm i
 ```
 
-Finally, [follow these steps to set up the file structure for your project](https://marcylabschool.gitbook.io/marcy-lab-school-docs/fullstack-curriculum/how-tos/vite#make-the-project-your-own).
+Vite will give you a bunch of files that you don't need. You can remove these unnecessary files
+
+```sh
+# delete these files
+rm counter.js javascript.svg
+```
+
+Next, make a `src` directory for all of our non-configuration code
+
+```sh
+
+# make a src directory
+mkdir src
+
+# move these files into src
+mv main.js src/
+mv style.css src/
+```
+
+We leave only the `index.html` file at the root of the project because it serves as the **entry point** for the rest of the application.
+
+All future JavaScript and CSS files you create should exist somewhere within `src`. Feel free to create more folders inside it if you'd like.
+
+Finally, we can edit the provided starter code:
+* Edit the `<script>` tag in `index.html` (line 11) so that it references the new location of `main.js`: `"/src/main.js"`
+* Empty out the `style.css` file
+* Empty out the `main.js` file so that all it does is import `style.css`
+
+Now you have an empty file structure to begin building in! Add your static (unchanging) HTML elements in the `index.html` file, styles in the `src/styles.css` file, and any DOM manipulation code in the `main.js` file.
 
 ## Project Description
 We're going to be building a palette picker program today. A "color palette" is a set of colors that go well together. We're going to be building a program that allows users to create their own palettes, and save them for later. We'll also be able to delete palettes, and copy the colors to the clipboard.
