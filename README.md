@@ -309,8 +309,10 @@ And don't forget that users need some confirmation of a copy, so alter the butto
 ## Tech Rubric
 In order to see how well you're doing with this project, here are all the things we need would like to see from you. If you get all of these, then you know that you're where you need to be!
 
+
+✔️
 ### Layout: Structure
-- [ ] There is a single `main` element on the page
+- [✔️] There is a single `main` element on the page
 - [ ] There is a single `h1` element on the page
 - [ ] There is a `form`
 - [ ] The form has an `h2` label
