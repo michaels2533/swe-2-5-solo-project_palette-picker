@@ -313,16 +313,16 @@ In order to see how well you're doing with this project, here are all the things
 ✔️
 ### Layout: Structure
 - [✔️] There is a single `main` element on the page
-- [ ] There is a single `h1` element on the page
-- [ ] There is a `form`
-- [ ] The form has an `h2` label
-- [ ] The form has an `text` input and label for the palette title
-- [ ] The form has 3 `color` type inputs and labels for the color inputs
-- [ ] The form has a `fieldset` with a `legend` for the temperature setting
-- [ ] The form has 3 `radio` inputs and `labels` for the temperature setting
-- [ ] The form has `neutral` as the default temperature setting
-- [ ] The form has a `button` to submit the form
-- [ ] There is a `section` for the palettes
+- [✔️ ] There is a single `h1` element on the page
+- [ ✔️] There is a `form`
+- [✔️ ] The form has an `h2` label
+- [✔️ ] The form has an `text` input and label for the palette title
+- [✔️ ] The form has 3 `color` type inputs and labels for the color inputs
+- [✔️ ] The form has a `fieldset` with a `legend` for the temperature setting
+- [✔️ ] The form has 3 `radio` inputs and `labels` for the temperature setting
+- [✔️ ] The form has `neutral` as the default temperature setting
+- [✔️ ] The form has a `button` to submit the form
+- [✔️ ] There is a `section` for the palettes
 - [ ] There is an `h2` showing the palettes section
 - [ ] The page has a `ul` and `li` items that show each palette
 - [ ] Each palette has the 3 colors clearly visible somehow
