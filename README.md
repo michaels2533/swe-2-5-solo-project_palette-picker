@@ -323,17 +323,17 @@ In order to see how well you're doing with this project, here are all the things
 - [✔️ ] The form has `neutral` as the default temperature setting
 - [✔️ ] The form has a `button` to submit the form
 - [✔️ ] There is a `section` for the palettes
-- [ ] There is an `h2` showing the palettes section
-- [ ] The page has a `ul` and `li` items that show each palette
-- [ ] Each palette has the 3 colors clearly visible somehow
+- [✔️] There is an `h2` showing the palettes section
+- [✔️] The page has a `ul` and `li` items that show each palette
+- [✔️] Each palette has the 3 colors clearly visible somehow
 - [ ] Each palette has white and black text overlaid on each of the colors
 - [ ] Each palette *somehow* has white and black border on each of the colors
-- [ ] Each palette has 3 copy buttons that show the name of the color they *would* copy
-- [ ] Each palette has a delete button
-- [ ] Each palette has a banner along the bottom with the name of the temperature
+- [✔️] Each palette has 3 copy buttons that show the name of the color they *would* copy
+- [✔️] Each palette has a delete button
+- [✔️] Each palette has a banner along the bottom with the name of the temperature
 - [ ] Each palette has a banner along the bottom that is colored by the temperature
   - (gray = neutral, red = warm, blue = cool)
-- [ ] Palettes appear next to each other in an organized, responsive, well-spaced layout (flex or grid presentations fine)
+- [✔️] Palettes appear next to each other in an organized, responsive, well-spaced layout (flex or grid presentations fine)
 
 ### layout: Accessibility
 - [ ] The form has an `aria-label` or `aria-labelledby` attribute that describes the form
