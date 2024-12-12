@@ -331,7 +331,7 @@ In order to see how well you're doing with this project, here are all the things
 - [✔️] Each palette has 3 copy buttons that show the name of the color they *would* copy
 - [✔️] Each palette has a delete button
 - [✔️] Each palette has a banner along the bottom with the name of the temperature
-- [ ] Each palette has a banner along the bottom that is colored by the temperature
+- [✔️] Each palette has a banner along the bottom that is colored by the temperature
   - (gray = neutral, red = warm, blue = cool)
 - [✔️] Palettes appear next to each other in an organized, responsive, well-spaced layout (flex or grid presentations fine)
 
