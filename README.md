@@ -355,8 +355,8 @@ In order to see how well you're doing with this project, here are all the things
 - [ ] A user's palettes are saved to localStorage
 
 ### Meta
-- [ ] The project is created using Vite
-- [ ] The code exists in more than one JS file
+- [✔️] The project is created using Vite
+- [✔️] The code exists in more than one JS file
 - [ ] The project is deployed via GitHub Pages properly
 - [ ] The `palettes.json` file is read properly
 - [ ] css flexbox or grid was used
