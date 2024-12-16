@@ -345,9 +345,9 @@ In order to see how well you're doing with this project, here are all the things
 - [✔️] Clicking the form submit button does not reload the page because the default behavior is prevented
 - [✔️] Clicking the form submit button creates a new palette in the palettes section
 - [✔️] Clicking the form submit button clears the form
-- [ ] Clicking one of the copy buttons copies the hex code of the color to the clipboard
-- [ ] Clicking the copy button copies the selected color to the user's clipboard
-- [ ] Clicking the copy button alters the text for a second to say "Copied hex!" for 1 second before switching back
+- [✔️] Clicking one of the copy buttons copies the hex code of the color to the clipboard
+- [✔️] Clicking the copy button copies the selected color to the user's clipboard
+- [✔️] Clicking the copy button alters the text for a second to say "Copied hex!" for 1 second before switching back
 - [ ] Clicking the delete button removes the palette from the page
 - [ ] Clicking the delete button removes the palette from localStorage (does not come back upon reload of page)
 - [ ] On first visit to the page, there are 3 default palettes
@@ -363,4 +363,4 @@ In order to see how well you're doing with this project, here are all the things
 - [ ] The code does not render unescaped text directly to the DOM (createElement or other escape method used)
 - [ ] `.innerHTML` or `createElement/.append` is used properly at some point in the project
 - [ ] `.innerHTML` or `.remove()` is used to delete elements from the DOM.
-- [ ] The `setTimeout` method is used to rewrite the copy button text
+- [✔️] The `setTimeout` method is used to rewrite the copy button text
