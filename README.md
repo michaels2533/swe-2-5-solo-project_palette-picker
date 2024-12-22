@@ -338,7 +338,7 @@ In order to see how well you're doing with this project, here are all the things
 ### layout: Accessibility
 - [ ] The form has an `aria-label` or `aria-labelledby` attribute that describes the form
 - [ ] The section has an `aria-label` or `aria-labelledby` attribute that describes the section
-- [ ] There are no instances of recreating any semantic elements
+- [✔️] There are no instances of recreating any semantic elements
 
 ### Functionality
 - [✔️] The title is a `required` field, and the form cannot be submitted without it
@@ -348,19 +348,19 @@ In order to see how well you're doing with this project, here are all the things
 - [✔️] Clicking one of the copy buttons copies the hex code of the color to the clipboard
 - [✔️] Clicking the copy button copies the selected color to the user's clipboard
 - [✔️] Clicking the copy button alters the text for a second to say "Copied hex!" for 1 second before switching back
-- [ ] Clicking the delete button removes the palette from the page
-- [ ] Clicking the delete button removes the palette from localStorage (does not come back upon reload of page)
-- [ ] On first visit to the page, there are 3 default palettes
-- [ ] If a user deletes all their palettes, on next reload, the default palettes appear again
-- [ ] A user's palettes are saved to localStorage
+- [✔️] Clicking the delete button removes the palette from the page
+- [✔️] Clicking the delete button removes the palette from localStorage (does not come back upon reload of page)
+- [✔️] On first visit to the page, there are 3 default palettes
+- [✔️] If a user deletes all their palettes, on next reload, the default palettes appear again
+- [✔️] A user's palettes are saved to localStorage
 
 ### Meta
 - [✔️] The project is created using Vite
 - [✔️] The code exists in more than one JS file
 - [ ] The project is deployed via GitHub Pages properly
-- [ ] The `palettes.json` file is read properly
+- [✔️] The `palettes.json` file is read properly
 - [✔️] css flexbox or grid was used
-- [ ] The code does not render unescaped text directly to the DOM (createElement or other escape method used)
-- [ ] `.innerHTML` or `createElement/.append` is used properly at some point in the project
-- [ ] `.innerHTML` or `.remove()` is used to delete elements from the DOM.
+- [✔️] The code does not render unescaped text directly to the DOM (createElement or other escape method used)
+- [✔️] `.innerHTML` or `createElement/.append` is used properly at some point in the project
+- [✔️] `.innerHTML` or `.remove()` is used to delete elements from the DOM.
 - [✔️] The `setTimeout` method is used to rewrite the copy button text
